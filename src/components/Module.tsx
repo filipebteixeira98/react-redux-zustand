@@ -1,8 +1,7 @@
-import { useDispatch } from 'react-redux'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import { ChevronDown } from 'lucide-react'
 
-import { useAppSelector } from '../store'
+import { useAppDispatch, useAppSelector } from '../store'
 import { play } from '../store/slices/player'
 
 import { Lesson } from './Lesson'
@@ -24,7 +23,7 @@ export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
     return { currentModuleIndex, currentLessonIndex }
   })
 
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   return (
     <Collapsible.Root className="group" defaultOpen={moduleIndex === 0}>

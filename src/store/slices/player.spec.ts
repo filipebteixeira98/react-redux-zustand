@@ -50,4 +50,17 @@ describe('player slice', () => {
 
     expect(state.currentLessonIndex).toEqual(1)
   })
+  it('should be able to jump to the next module automatically', () => {
+    const state = reducer(
+      {
+        ...exampleMockState,
+        currentLessonIndex: 1,
+      },
+      next()
+    )
+
+    expect(state.currentModuleIndex).toEqual(1)
+
+    expect(state.currentLessonIndex).toEqual(0)
+  })
 })
